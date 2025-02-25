@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    image: node:23.8.0
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - '8080:8080'
+    command: sh -c "npm install && npm run dev"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  # Optional: Add a service for a backend API if needed
+  # api:
+  #   image: your-backend-image
+  #   ports:
+  #     - '3000:3000'
+  #   environment:
+  #     - NODE_ENV=development
