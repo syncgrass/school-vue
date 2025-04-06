@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:23.8.0
+FROM node:18.17.1
 
 # Set the working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 8089
 
 # Start the application
 CMD ["npm", "run", "serve"]
